@@ -5,6 +5,13 @@ class TodosController < ApplicationController
   # GET /todos.json
   def index
     @todos = Todo.all
+    @todos = Todo.new
+
+    respond_to do |format|
+      format.html {:index}
+      format.json {render json: @todo}
+      format.xml {render xml: @todo}
+    end
   end
 
   # GET /todos/1
